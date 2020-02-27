@@ -1,0 +1,59 @@
+#include <iostream>
+#include <vector>
+#include <conio.h>
+
+using namespace std;
+
+enum StandardPokoju{
+		Ekonomiczny = 1,
+		Podwyzszony = 2,
+		Vip = 3
+		};
+enum RodzajLozek{
+		Pojedyncze = 1,
+		Podwojne = 2
+		};
+class Pokoj{
+	public:
+		int ileOsob;
+		int NumerPokoju;
+		StandardPokoju Standard;
+		RodzajLozek Rodzaj;	
+		bool Zajety;
+		
+		Pokoj(int ileOsob, int NumerPokoju, RodzajLozek Rodzaj, StandardPokoju Standard, bool Zajety);
+		
+};
+vector <Pokoj> tab;
+
+int Uzupelnienie(){
+	int ileOsob; int NumerPokoju; int nRodzajLozek; int nStandardPokoju; bool Zajety;
+	cout << "Podaj ile osob moze byc w pokoju: ";
+	cin >> ileOsob;
+	cout << "Podaj numer pokoju: ";
+	cin >> NumerPokoju;
+	cout << "Podaj rodzaj lozek(Pojedyncze, Podwojne): ";
+	cin >> nRodzajLozek;
+	cout << "Podaj standard pokoju(Ekonomiczny, Podwyzszony, Vip): ";
+	cin >> nStandardPokoju;
+	cout << "Czy pokoj jest zajety? ";
+	cin >> Zajety;
+	
+	RodzajLozek Rodzaj = (RodzajLozek)nRodzajLozek;
+	StandardPokoju Standard = (StandardPokoju)nStandardPokoju;
+	Pokoj *pokoj1 = new Pokoj(ileOsob, NumerPokoju,Rodzaj, Standard, Zajety);
+	tab.push_back(*pokoj1);
+	return 0;	
+	
+};
+int Wyswietl();
+
+Pokoj::Pokoj(int ileOsob, int NumerPokoju, RodzajLozek Rodzaj, StandardPokoju Standard, bool Zajety){
+}
+
+int main() {
+	Uzupelnienie();
+	cout << tab[0].NumerPokoju;
+	
+	return 0;
+}
